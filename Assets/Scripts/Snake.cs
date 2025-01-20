@@ -12,7 +12,7 @@ public class Snake : MonoBehaviour
     public bool moveThroughWalls = false;
 
     private readonly List<Transform> segments = new List<Transform>();
-    private Vector2Int input;
+    protected Vector2Int input;
     private float nextUpdate;
 
     private void Start()
@@ -111,7 +111,7 @@ public class Snake : MonoBehaviour
         return false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Food"))
         {

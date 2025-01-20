@@ -1,6 +1,7 @@
 
 
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class AutoSnake : Snake
 {
@@ -21,12 +22,24 @@ public class AutoSnake : Snake
         //Decidir si va en vertical u horizontal
 
         //Obtiene que direccion esta mas lejana
-        if (Mathf.Abs(distance.x) <= Mathf.Abs(distance.y))
+        if (Mathf.Abs(distance.x) >= Mathf.Abs(distance.y))
         {
-
+            //X
+            if (distance.x > 0)
+                input = Vector2Int.right;
+            else if (distance.x < 0)
+                input = Vector2Int.left;
+        }
+        else
+        {
+            //Y
+            if(distance.y > 0 )
+                input = Vector2Int.up;
+            else if (distance.y < 0)
+                input = Vector2Int.down;
         }
 
-
+        return default(Vector2Int);
 
     }
 
